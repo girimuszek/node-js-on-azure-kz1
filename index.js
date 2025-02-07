@@ -25,6 +25,16 @@ app.get('/version', (request, response) => {
 	response.send('Version: '+majorVersion+'.'+minorVersion)
 })
 
+// establishes the resume page wth PDF printer
+app.get('/resume', (req, res) => {
+    res.sendFile(path.join(__dirname, 'static', 'resume', 'index.html'));
+});
+
+// Establishes the web dice roller app
+app.get('/diceroll', (req, res) => {
+    res.sendFile(path.join(__dirname, 'static', 'diceroll', 'index.html'));
+});
+
 // Return the value of 2 plus 2.
 app.get('/2plus2', (request, response) => {
 	console.log('Calling "/2plus2" on the Node.js server.')
