@@ -26,12 +26,12 @@ app.get('/version', (request, response) => {
 })
 
 // establishes the resume page wth PDF printer
-app.get('/resume', (req, res) => {
+app.get('/resume', (request, response) => {
     res.sendFile(path.join(__dirname, 'static', 'resume', 'index.html'));
 });
 
 // Establishes the web dice roller app
-app.get('/diceroll', (req, res) => {
+app.get('/diceroll', (request, response) => {
     res.sendFile(path.join(__dirname, 'static', 'diceroll', 'index.html'));
 });
 
