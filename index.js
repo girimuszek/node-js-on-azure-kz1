@@ -27,12 +27,12 @@ app.get('/version', (request, response) => {
 
 // establishes the resume page wth PDF printer
 app.get('/resume', (request, response) => {
-    res.sendFile(path.join(__dirname, 'static', 'resume', 'index.html'));
+    response.sendFile(path.join(__dirname, 'static', 'resume', 'index.html'));
 });
 
 // Establishes the web dice roller app
 app.get('/diceroll', (request, response) => {
-    res.sendFile(path.join(__dirname, 'static', 'diceroll', 'index.html'));
+    response.sendFile(path.join(__dirname, 'static', 'diceroll', 'index.html'));
 });
 
 // Return the value of 2 plus 2.
