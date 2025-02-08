@@ -6,11 +6,31 @@ p {color:rgb(44, 118, 4); text-align: center; font-family:"Lucida Console"}
 body {text-align: center; font-family:"Lucida Console"; font-size: 30px;
   background-color: #575148;
 }
+
+.pdf {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 .centering {
     display: block;
     margin-left: auto;
     margin-right: auto;
-  }
+}
 .rightside {
   display: block;
   margin-left: auto;
