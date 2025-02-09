@@ -18,14 +18,15 @@ window.onload = function initiate() {
     function switchTurns() {
         myTurn = !myTurn;
         herTurn = !herTurn;
-        
     }
+
     //rolls d20 to seeb who gets initiative
     function rollInitiative() {
         let initiativeRoll = d20();
 
         //gets the element, and prints out the outcome of initiativeRoll
         document.getElementById("initiativeResult").textContent = `Initiative Roll: ${initiativeRoll}`;
+
         let initiativeResult2message = ""
 
         if (initiativeRoll > 10){
@@ -41,6 +42,7 @@ window.onload = function initiate() {
 
     function myAttack(){
         document.getElementById("combatMessage").textContent = `You can't bring yourself to hurt your cat`;
+        document.getElementById("attackBtn").disabled = true;
         switchTurns();
         setTimeout(fight, 1000);
     }
@@ -67,7 +69,6 @@ window.onload = function initiate() {
         } else {
             document.getElementById("turnOrder").textContent = `Yours`;
             document.getElementById("attackBtn").disabled = false;
-            myAttack()
         }
     }
 
