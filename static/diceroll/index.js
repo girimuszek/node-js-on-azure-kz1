@@ -19,16 +19,15 @@ window.onload = function initiate() {
         myTurn = !myTurn;
         herTurn = !herTurn;
         
-
-
     }
-    //rolls d20 to seewho gets initiative
+    //rolls d20 to seeb who gets initiative
     function rollInitiative() {
         let initiativeRoll = d20();
 
         //gets the element, and prints out the outcome of initiativeRoll
         document.getElementById("initiativeResult").textContent = `Initiative Roll: ${initiativeRoll}`;
         let initiativeResult2message = ""
+        
         if (initiativeRoll > 10){
             initiativeResult2message = "You go first!";
             switchTurns()
@@ -64,7 +63,7 @@ window.onload = function initiate() {
     }
 
     function fight(){
-        if (myTurn = false) {
+        if (myTurn === false) {
             herAttack()
         } else {
             myAttack()
@@ -77,8 +76,10 @@ window.onload = function initiate() {
         }
     });
 
-    document.getElementById("rollInitiativeBtn").addEventListener("click", rollInitiative);
     document.getElementById("attackBtn").addEventListener("click", myAttack);
     document.getElementById("attackBtn").disabled = true;
+
+    //Rolls initiative upon loading the page
+    rollInitiative();
 
 };
