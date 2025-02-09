@@ -42,7 +42,7 @@ window.onload = function initiate() {
     function myAttack(){
         document.getElementById("combatMessage").textContent = `You can't bring yourself to hurt your cat`;
         switchTurns();
-        fight();
+        setTimeout(fight, 1000);
     }
 
     function herAttack(){
@@ -63,7 +63,7 @@ window.onload = function initiate() {
         if (myTurn === false) {
             document.getElementById("turnOrder").textContent = `Maja's`;
             document.getElementById("attackBtn").disabled = true;
-            herAttack()
+            setTimeout(herAttack, 1000);
         } else {
             document.getElementById("turnOrder").textContent = `Yours`;
             document.getElementById("attackBtn").disabled = false;
@@ -73,10 +73,10 @@ window.onload = function initiate() {
 
     document.addEventListener("keydown", function(event) {
         if (event.key === "Enter" && myTurn) {
-            myAttack();
+            document.getElementById("attackBtn").click();
         }
     });
-
+    //Enables, so that when you click the attack button, it initiates myAttack();
     document.getElementById("attackBtn").addEventListener("click", myAttack);
     document.getElementById("attackBtn").disabled = true;
 
