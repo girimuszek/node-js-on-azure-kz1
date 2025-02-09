@@ -39,13 +39,11 @@ window.onload = function initiate() {
         fight()
     }
 
-
     function myAttack(){
-        document.getElementById("attackBtn").disabled = false;
         document.getElementById("combatMessage").textContent = `You can't bring yourself to hurt your cat`;
+        switchTurns();
         fight();
     }
-
 
     function herAttack(){
         let damage = d8();
@@ -55,7 +53,6 @@ window.onload = function initiate() {
         
         if (myHP <= 0) {
             document.getElementById("combatMessage").textContent = "You have been defeated!";
-            document.getElementById("attackBtn").disabled = true;
             return;
         }
         switchTurns();
@@ -64,8 +61,12 @@ window.onload = function initiate() {
 
     function fight(){
         if (myTurn === false) {
+            document.getElementById("turnOrder").textContent = `Maja's`;
+            document.getElementById("attackBtn").disabled = true;
             herAttack()
         } else {
+            document.getElementById("turnOrder").textContent = `Yours`;
+            document.getElementById("attackBtn").disabled = false;
             myAttack()
         }
     }
