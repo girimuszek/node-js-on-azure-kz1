@@ -36,21 +36,22 @@ window.onload = function initiate() {
             initiativeResult2message = "Maja goes first!";
         }
         
-        document.getElementById("initiativeResult2").textContent = initiativeResult2message;
-        fight()
+        document.getElementById("combatMessage").textContent = `She saw you, so you rolled the d20 for ${initiativeRoll}, so ${initiativeResult2message}`;
+        setTimeout(fight, 1000);
     }
 
     function myAttack(){
-        document.getElementById("combatMessage").textContent = `You can't bring yourself to hurt your cat`;
+        let damage = d8();
+        document.getElementById("combatMessage").textContent = `Your attack would've done ${damage} HP, but you can't bring yourself to hurt your cat`;
         document.getElementById("attackBtn").disabled = true;
         switchTurns();
-        setTimeout(fight, 1000);
+        setTimeout(fight, 3000);
     }
 
     function herAttack(){
         let damage = d8();
         myHP -= damage
-        document.getElementById("combatMessage").textContent = `Maja deals ${damage} damage!`;
+        document.getElementById("combatMessage").textContent = `Maja deals ${damage} damage with the d8 die!`;
         document.getElementById("myHPtext").textContent = `${myHP}`;
         
         if (myHP <= 0) {
@@ -63,11 +64,11 @@ window.onload = function initiate() {
 
     function fight(){
         if (myTurn === false) {
-            document.getElementById("turnOrder").textContent = `Maja's`;
+            document.getElementById("turnOrder").textContent = `Turn Order: Maja's`;
             document.getElementById("attackBtn").disabled = true;
             setTimeout(herAttack, 1000);
         } else {
-            document.getElementById("turnOrder").textContent = `Yours`;
+            document.getElementById("turnOrder").textContent = `Turn Order: Yours`;
             document.getElementById("attackBtn").disabled = false;
         }
     }
