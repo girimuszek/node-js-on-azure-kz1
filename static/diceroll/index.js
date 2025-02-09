@@ -37,7 +37,7 @@ window.onload = function initiate() {
         }
         
         document.getElementById("combatMessage").textContent = `She saw you, so you rolled the d20 for ${initiativeRoll}, so ${initiativeResult2message}`;
-        setTimeout(fight, 1000);
+        setTimeout(fight, 2000);
     }
 
     function myAttack(){
@@ -59,14 +59,14 @@ window.onload = function initiate() {
             return;
         }
         switchTurns();
-        fight();
+        setTimeout(fight, 2000);
     }
 
     function fight(){
         if (myTurn === false) {
             document.getElementById("turnOrder").textContent = `Turn Order: Maja's`;
             document.getElementById("attackBtn").disabled = true;
-            setTimeout(herAttack, 1000);
+            setTimeout(herAttack,2000);
         } else {
             document.getElementById("turnOrder").textContent = `Turn Order: Yours`;
             document.getElementById("attackBtn").disabled = false;
