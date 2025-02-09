@@ -25,7 +25,6 @@ window.onload = function initiate() {
         let initiativeRoll = d20();
 
         //gets the element, and prints out the outcome of initiativeRoll
-        document.getElementById("initiativeResult").textContent = `Initiative Roll: ${initiativeRoll}`;
 
         let initiativeResult2message = ""
 
@@ -36,7 +35,7 @@ window.onload = function initiate() {
             initiativeResult2message = "Maja goes first!";
         }
         
-        document.getElementById("combatMessage").textContent = `She saw you, so you rolled the d20 for ${initiativeRoll}, so ${initiativeResult2message}`;
+        document.getElementById("combatMessage").textContent = `She saw you, so you rolled the d20 for: ${initiativeRoll}, so ${initiativeResult2message}`;
         setTimeout(fight, 2000);
     }
 
@@ -45,7 +44,7 @@ window.onload = function initiate() {
         document.getElementById("combatMessage").textContent = `Your attack would've done ${damage} HP, but you can't bring yourself to hurt your cat`;
         document.getElementById("attackBtn").disabled = true;
         switchTurns();
-        setTimeout(fight, 3000);
+        setTimeout(fight, 500);
     }
 
     function herAttack(){
@@ -59,14 +58,14 @@ window.onload = function initiate() {
             return;
         }
         switchTurns();
-        setTimeout(fight, 2000);
+        setTimeout(fight, 500);
     }
 
     function fight(){
         if (myTurn === false) {
             document.getElementById("turnOrder").textContent = `Turn Order: Maja's`;
             document.getElementById("attackBtn").disabled = true;
-            setTimeout(herAttack,2000);
+            setTimeout(herAttack, 2000);
         } else {
             document.getElementById("turnOrder").textContent = `Turn Order: Yours`;
             document.getElementById("attackBtn").disabled = false;
