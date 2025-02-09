@@ -3,7 +3,7 @@ window.onload = function initiate() {
     let myTurn = false;
     let herTurn = true;
     let myHP = 30;
-    document.getElementById("myHPtext").textContent = `${myHP}`;
+    document.getElementById("myHPtext").textContent = `My HP: ${myHP}`;
     
     // d20 Die
     function d20() {
@@ -27,7 +27,7 @@ window.onload = function initiate() {
         //gets the element, and prints out the outcome of initiativeRoll
         document.getElementById("initiativeResult").textContent = `Initiative Roll: ${initiativeRoll}`;
         let initiativeResult2message = ""
-        
+
         if (initiativeRoll > 10){
             initiativeResult2message = "You go first!";
             switchTurns()
@@ -42,7 +42,7 @@ window.onload = function initiate() {
 
     function myAttack(){
         document.getElementById("attackBtn").disabled = false;
-        document.getElementById("combat").textContent = `You can't bring yourself to hurt your cat`;
+        document.getElementById("combatMessage").textContent = `You can't bring yourself to hurt your cat`;
         fight();
     }
 
@@ -50,11 +50,11 @@ window.onload = function initiate() {
     function herAttack(){
         let damage = d8();
         myHP -= damage
-        document.getElementById("combat").textContent = `Maja deals ${damage} damage!`;
+        document.getElementById("combatMessage").textContent = `Maja deals ${damage} damage!`;
         document.getElementById("myHPtext").textContent = `${myHP}`;
         
         if (myHP <= 0) {
-            document.getElementById("combat").textContent = "You have been defeated!";
+            document.getElementById("combatMessage").textContent = "You have been defeated!";
             document.getElementById("attackBtn").disabled = true;
             return;
         }
