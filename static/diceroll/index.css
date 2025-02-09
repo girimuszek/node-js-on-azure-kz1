@@ -13,10 +13,13 @@ body {text-align: center; font-family:'Courier New', monospace; font-size: 30px;
   }
   
 .centerImage {
-    text-align: center;
-    display: block;
-    width: 300px;
-    height: 350px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+.centerImage img {
+  width: 300px;
+  height: 350px;
 }
 .rightside {
   display: block;

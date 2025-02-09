@@ -51,7 +51,7 @@ window.onload = function initiate() {
         let damage = d8();
         myHP -= damage
         document.getElementById("combatMessage").textContent = `Maja deals ${damage} damage with the d8 die!`;
-        document.getElementById("myHPtext").textContent = `${myHP}`;
+        document.getElementById("myHPtext").textContent = `My HP: ${myHP}`;
         
         if (myHP <= 0) {
             document.getElementById("combatMessage").textContent = "You have been defeated!";
