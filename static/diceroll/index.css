@@ -47,4 +47,15 @@ li {
     height: auto;
     
 }
+.number-field {
+  text-align: right;
+  font-weight: bold;
+}
+
+.number-field[readonly] {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: default;
+}
 
