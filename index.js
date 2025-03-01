@@ -25,6 +25,9 @@ app.get('/version', (request, response) => {
 	response.send('Version: '+majorVersion+'.'+minorVersion)
 })
 
+
+// MY PATHS:
+//----------------------------------------------------------
 // establishes the resume page wth PDF printer
 app.get('/resume', (request, response) => {
     response.sendFile(path.join(__dirname, 'static', 'resume', 'index.html'));
@@ -38,6 +41,16 @@ app.get('/diceroll', (request, response) => {
 app.get('/serverDiceRoll', (request, response) => {
     response.sendFile(path.join(__dirname, 'static', 'serverDiceRoll', 'index.html'));
 });
+
+// Establishes the web dice roller app with back end RNG
+app.get('/serverDiceRollAPITest', (request, response) => {
+    response.sendFile(path.join(__dirname, 'static', 'serverDiceRollAPITest', 'index.html'));
+});
+
+//-----------------------------------------------------------
+
+
+
 
 // Return the value of 2 plus 2.
 app.get('/2plus2', (request, response) => {
@@ -56,6 +69,7 @@ app.get('/add-two-integers', (request, response) => {
 	response.type('text/plain')
 	response.send(sum.toString())
 })
+
 
 // Template for calculating BMI using height in feet/inches and weight in pounds.
 app.get('/calculate-bmi', (request, response) => {

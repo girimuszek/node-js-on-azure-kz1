@@ -1,11 +1,23 @@
-window.onload = function initiate() {
+const apiBase = "https://node-js-on-azure-kz1-backend-fvcbd9b3f7a3fubp.centralus-01.azurewebsites.net";
+
+async function wakeUpServer() {
+    try {
+        const response = await fetch(`${apiBase}/ping`);
+        const data = await response.json();
+        console.log('Server wake-up response:', data.message);
+    } catch (err) {
+        console.error('Failed to wake up server:', err);
+    }
+}
+
+window.onload = async function initiate() {
+    await wakeUpServer();
 
     let myTurn = false;
     let herTurn = true;
     let myHP = 30;
     document.getElementById("myHPtext").textContent = `My HP: ${myHP}`;
     
-    const apiBase = "https://node-js-on-azure-kz1-backend-fvcbd9b3f7a3fubp.centralus-01.azurewebsites.net";
 
     // d20 Die
     async function d20() {

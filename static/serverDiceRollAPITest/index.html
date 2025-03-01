@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>API Test Page</title>
+    <script>
+        async function rollDie(type) {
+            const response = await fetch(`https://node-js-on-azure-kz1-backend-fvcbd9b3f7a3fubp.centralus-01.azurewebsites.net/roll?type=${type}`);
+            const data = await response.json();
+            document.getElementById('output').textContent = JSON.stringify(data);
+        }
+    </script>
+</head>
+<body>
+    <h1>Dice Roller API Test</h1>
+    <button onclick="rollDie('d20')">Roll d20</button>
+    <button onclick="rollDie('d8')">Roll d8</button>
+    <pre id="output"></pre>
+</body>
+</html>
