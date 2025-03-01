@@ -34,6 +34,10 @@ app.get('/resume', (request, response) => {
 app.get('/diceroll', (request, response) => {
     response.sendFile(path.join(__dirname, 'static', 'diceroll', 'index.html'));
 });
+// Establishes the web dice roller app with back end RNG
+app.get('/serverDiceRoll', (request, response) => {
+    response.sendFile(path.join(__dirname, 'static', 'serverDiceRoll', 'index.html'));
+});
 
 // Return the value of 2 plus 2.
 app.get('/2plus2', (request, response) => {

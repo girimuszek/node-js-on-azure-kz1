@@ -5,14 +5,20 @@ window.onload = function initiate() {
     let myHP = 30;
     document.getElementById("myHPtext").textContent = `My HP: ${myHP}`;
     
+    const apiBase = "https://node-js-on-azure-kz1-backend-fvcbd9b3f7a3fubp.centralus-01.azurewebsites.net";
+
     // d20 Die
-    function d20() {
-        return Math.floor(Math.random() * 20) + 1;
+    async function d20() {
+        const response = await fetch(`${apiBase}/roll?type=d20`)
+        const data = await response.json()
+        return data.die;
     }
 
     // d8 Die 
-    function d8() {
-        return Math.floor(Math.random() * 8) + 1;
+    async function d8() {
+        const response = await fetch(`${apiBase}/roll?type=d8`)
+        const data = await response.json()
+        return data.die;
     }
 
     function switchTurns() {
@@ -21,11 +27,10 @@ window.onload = function initiate() {
     }
 
     //rolls d20 to seeb who gets initiative
-    function rollInitiative() {
-        let initiativeRoll = d20();
+    async function rollInitiative() {
+        let initiativeRoll = await d20();
 
-        //gets the element, and prints out the outcome of initiativeRoll
-
+        
         let initiativeResult2message = ""
 
         if (initiativeRoll > 10){
@@ -39,16 +44,16 @@ window.onload = function initiate() {
         setTimeout(fight, 2000);
     }
 
-    function myAttack(){
-        let damage = d8();
+    async function myAttack(){
+        let damage = await d8();
         document.getElementById("combatMessage").textContent = `Your attack would've done ${damage} HP, but you can't bring yourself to hurt your cat`;
         document.getElementById("attackBtn").disabled = true;
         switchTurns();
         setTimeout(fight, 500);
     }
 
-    function herAttack(){
-        let damage = d8();
+    async function herAttack(){
+        let damage = await d8();
         myHP -= damage
         document.getElementById("combatMessage").textContent = `Maja deals ${damage} damage with the d8 die!`;
         document.getElementById("myHPtext").textContent = `My HP: ${myHP}`;
