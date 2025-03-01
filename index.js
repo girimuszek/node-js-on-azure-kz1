@@ -46,6 +46,10 @@ app.get('/serverDiceRoll', (request, response) => {
 app.get('/serverDiceRollAPITest', (request, response) => {
     response.sendFile(path.join(__dirname, 'static', 'serverDiceRollAPITest', 'index.html'));
 });
+// Establishes the dog app
+app.get('/serverDiceRollAPITest', (request, response) => {
+    response.sendFile(path.join(__dirname, 'static', 'serverDiceRollAPITest', 'index.html'));
+});
 
 //-----------------------------------------------------------
 
